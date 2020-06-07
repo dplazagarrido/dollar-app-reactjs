@@ -1,0 +1,1 @@
+export const sbifApi = 'https://api.sbif.cl/api-sbifv3/recursos_api/'
