@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import appisSbif from '../../utils/axiosInstances'
+import { sbifApiKey } from '../../utils/apiKey'
 import  { Grid } from '@material-ui/core'
 import DateFnsUtils from '@date-io/date-fns'
 import {
@@ -29,7 +30,7 @@ const DollarChart = () =>  {
     const getDollarInfo = async () => {
       try {
         setShowLoading(true)
-        const response = await appisSbif.get(`/dolar/periodo/${selectedDateIni.getFullYear()}/${selectedDateIni.getMonth() + 1}/dias_i/${selectedDateIni.getDate()}/${selectedDateFin.getFullYear()}/${selectedDateFin.getMonth() + 1}/dias_f/${selectedDateFin.getDate()}?apikey=9c84db4d447c80c74961a72245371245cb7ac15f&formato=json`)
+        const response = await appisSbif.get(`/dolar/periodo/${selectedDateIni.getFullYear()}/${selectedDateIni.getMonth() + 1}/dias_i/${selectedDateIni.getDate()}/${selectedDateFin.getFullYear()}/${selectedDateFin.getMonth() + 1}/dias_f/${selectedDateFin.getDate()}?apikey=${sbifApiKey}&formato=json`)
         const dataTemp = []
         const valoresTemp = []
         response.data.Dolares.forEach(element => {
